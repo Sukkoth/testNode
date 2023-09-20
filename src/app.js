@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     res.render('test');
 });
 
-app.post('/message', (req, res) => {
+app.post('/api/message', (req, res) => {
     console.log(req.body);
     return res.json({
         message: 'recieved',
