@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/*",
+            "destination": "https://ejs-2z06ei6jj-sukkoth.vercel.app/"
+        }
+    ]
+}
