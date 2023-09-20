@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Welcome</h1>
+        <form id="form">
+            <input type="text" placeholder="name" name="name" id="name" />
+            <button>Submit</button>
+        </form>
+        <script>
+            document.addEventListener('submit', (e) => {
+                e.preventDefault();
+                console.log('SUBMITTED');
+                sendMessage();
+            });
+
+            async function sendMessage() {
+                const name = document.getElementById('name').value;
+
+                try {
+                    const response = await fetch('/message', {
+                        method: 'post',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ name: name }),
+                    });
+                    if (!response.ok) throw new Error('RAISE AN ERROR');
+                    const data = await response.json();
+                } catch (error) {
+                    console.log('Error sending data', error);
+                }
+            }
+        </script>
+    </body>
+</html>
