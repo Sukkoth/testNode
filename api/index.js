@@ -8,12 +8,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.json({
-        message: 'Hello World!',
-    });
-});
-
-app.get('/test', (req, res) => {
     res.render('test');
 });
 
@@ -25,6 +19,4 @@ app.post('/message', (req, res) => {
     });
 });
 
-app.listen(process.env.APP_PORT || 7000, () =>
-    console.log(`Server running on port ${process.env.APP_PORT || 7000}`)
-);
+module.exports = app;
